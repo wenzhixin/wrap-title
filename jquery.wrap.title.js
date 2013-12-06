@@ -8,7 +8,9 @@ $(function() {
 			title = $this.attr('title');
 			
 		$this.attr('data-title', title);
-		$this.removeAttr('title');
+		
+		// fix IE7/IE8 bug: use attr replace removeAttr
+		$this.attr('title', ''); 
 		
 		$this.data('timeoutId', setTimeout(function() {
 			var titles = [],
